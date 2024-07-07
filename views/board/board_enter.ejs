@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Board_Enter</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+
+</head>
+
+<body class="board-page">
+
+<%- include('../menu.html') %>
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade">
+      <div class="container position-relative">
+        <h1>게시글 작성</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.ejs">Home</a></li>
+            <li class="current">게시글 등록</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Contact Section -->
+    <section id="board_enter" class="board_enter section">
+      <p></p>
+      <div class="container mt-4">
+        <form action="/post/save" method="post">
+          <input type="hidden" name="id" value="<%=data.id%>">
+          <input type="hidden" name="frsc" value="<%=csrf_token%>">
+          <div class="form-group">
+              <label for="boardtype">게시글 유형</label>
+              <select class="form-select" id="boardtype" name="boardtype" placeholder="게시글 유형을 선택하세요">
+                <option value="공지사항">공지사항</option>
+                <option value="질문하기">질문하기</option>
+                <option value="민원작성하기">민원작성하기</option>
+                <option value="기타">기타</option>
+              </select>
+          </div>
+          <p></p>
+          <div class="form-group">
+            <label>제목</label>
+            <input type="text" name="title" class="form-control" />
+          </div>
+          <p></p>
+          <div class="form-group">
+            <label>내용</label>
+            <textarea name="content" rows="10" class="form-control"></textarea>
+          </div>
+          <p></p>
+          <div class="form-group">
+            <label>작성일</label>
+            <input type="date" class="form-control" name="someDate" />
+          </div>
+          <p></p>
+          <button type="submit" class="btn btn-warning" style="float: right">저장</button>
+        </form>
+      </div><!-- End Contact Form -->
+      <div class="container mt-3">
+        <form action="/post/photo" method="post" enctype="multipart/form-data">
+          <input type="file" class="btn btn-outline-primary" name="picture">
+          <button type="submit" class="btn btn-outline-primary">첨부</button>
+        </form>
+      </div>
+      <p></p>
+      <p></p>
+      <p></p>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Contact Section -->
+
+  </main>
+
+</body>
+
+</html>

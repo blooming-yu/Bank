@@ -1,60 +1,64 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-  </head>
-  <body>
-    <!-- <%- include('menu.html') %> -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container mt-4">
+    <h1>회원가입</h1>
+    <form action="/account/save" method="post">
+      <div class="form-group">
+        <label>아이디</label>
+        <input type="text" name="userid" class="form-control">
+        <% if(typeof data != 'undefined' && data.msg){ %>
+          <span class="text-danger"><%= data.msg %></span>
+        <% } %>
+      </div><p></p>
 
-    <% if(typeof data != 'undefined' && data.alertMsg){ %>
-      <script>
-        alert(`<%= data.alertMsg %>`);
-      </script>
-    <% } %>
-      
-      <div class = "container mt-4">
-        <h1>회원가입</h1>
-        <form action = "/account/save" method="post">
-            <div class = "form-group">
-            <label>아이디</label>
-            <input type="text" name = "userid" class = "form-control">
-            <% if(typeof data != 'undefined' && data.msg){ %>
-              <span class="text-danger"><%= data.msg %></span>
-            <% } %>
-            </div><p></p>
-            
-            <div class="form-group">
-            <label>비밀번호</label>
-            <input type="password"  class="form-control" name ="userpw">
-            </div><p></p>  
-            
-            <div class="form-group">
-              <label>이름</label>
-              <input type="text"  class="form-control" name ="username">
-            </div><p></p> 
+      <div class="form-group">
+        <label>비밀번호</label>
+        <input type="password" class="form-control" name="userpw">
+        <% if(typeof data != 'undefined' && data.pwMsg){ %>
+          <span class="text-danger"><%= data.pwMsg %></span>
+        <% } %>
+      </div><p></p>  
 
-            <div class="form-group">
-              <label>권한</label>
-              <input type="text"  class="form-control" name ="userrole">
-            </div><p></p> 
+      <div class="form-group">
+        <label>이름</label>
+        <input type="text" class="form-control" name="username">
+      </div><p></p> 
 
-            <button type = "submit" class="admin btn btn-warning" style="float:right">회원가입</button>
-            
-        </form>
-    </div>
-    <script>
-      $(".admin").click(function(e){
-            let roleCheck = e.target.dataset.id;
-            let reason = prompt("관리자 권한 인증 코드를 입력하세요 : ");
-            if (reason) {
-                $.post("/request-edit", { assetId: assetId, reason: reason }, function(data) {
-                    alert(data.message);
-                });
-            }
-        });
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  </body>
+      <div class="form-group">
+        <label>권한</label>
+        <input type="text" class="form-control" name="userrole">
+      </div><p></p> 
+
+      <button type="submit" class="btn btn-warning">회원가입</button>
+    </form>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0sG1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $("form").submit(function(e) {
+      let userrole = $("input[name='userrole']").val();
+      if (userrole.toLowerCase() === 'admin') {
+        e.preventDefault(); // 폼 제출을 막습니다.
+
+        let adminPassword = prompt("관리자 권한 인증 코드를 입력하세요:");
+        if (adminPassword) {
+          $("<input>").attr({
+            type: "hidden",
+            name: "adminPassword",
+            value: adminPassword
+          }).appendTo("form");
+
+          $("form").unbind('submit').submit();
+        }
+      }
+    });
+  </script>
+</body>
 </html>

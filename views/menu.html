@@ -64,7 +64,34 @@
       <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
     </nav>
 
+    <span id="loginSpan">
+      <form action="/account/login" method="post">
+          ID <input size="3" name="userid"> 
+          PW <input size="3" name="userpw"> 
+          <input type="submit" value="login" class="btn btn-outline-warning">
+        </form>
+      </span>
+
     <a class="btn-getstarted" href="/account/enter">회원가입</a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+    <script>
+      const uid = $.cookie("uid");
+
+      $(document).ready(function() {
+        const uid = $.cookie("uid");
+        if (uid) {
+          $("#loginSpan").html(`${uid} <button onclick="logout()" class="btn btn-warning">logout</button>`);
+      }
+      });
+
+      function logout() {
+        $.removeCookie("uid", { path: "/" });
+        location.href = "/account/logout";
+      }
+    </script>
 
   </div>
 </header>

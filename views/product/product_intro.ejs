@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Service Details - Logis Bootstrap Template</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+<%- include ('../menu.html') %>
+</head>
+
+<body class="service-details-page">
+
+  
+
+  <main class="main">
+
+    <!-- Page Title -->
+    <div class="page-title dark-background" data-aos="fade" style="background-image: url(assets/img/page-title-bg.jpg);">
+      <div class="container position-relative">
+        <h1>금융 상품 소개</h1>
+        <p>다양한 금융 상품들을 소개합니다</p>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.ejs">Home</a></li>
+            <li class="current">금융 상품 소개</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+
+    <!-- Service Details Section -->
+<section id="service-details" class="service-details section">
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- 왼쪽 컬럼: 상품 목록 -->
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="services-list">
+          <a href="#deposit" class="service-link active">예금</a>
+          <a href="#savings" class="service-link">적금</a>
+          <a href="#housing" class="service-link">주택 청약</a>
+          <a href="#funds" class="service-link">펀드</a>
+          <a href="#loans" class="service-link">대출</a>
+        </div>
+      </div>
+      
+      <!-- 오른쪽 컬럼: 상품 설명 -->
+      <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+        
+        <!-- 예금 상품 설명 -->
+        <div id="deposit" class="service-item">
+          <img src="assets/img/services/deposit.jpg" alt="" class="img-fluid services-img">
+          <h1><b>예금 상품</b><p></p></h>
+          <p>
+            예금 상품은 안정적인 수익을 추구하는 고객을 위한 장기적인 투자 솔루션입니다.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>고정된 이자율로 안정적인 수익을 제공합니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>만기에 따른 이자 계산 방식을 제공합니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>일정 기간 동안 예금을 유지해야 하는 요구사항이 있을 수 있습니다.</span></li>
+          </ul>
+        </div>
+        
+        <!-- 적금 상품 설명 -->
+        <div id="savings" class="service-item" style="display:none;">
+          <img src="assets/img/services/savings.jpg" alt="" class="img-fluid services-img">
+          <h1><b>적금 상품</b><p></p></h>
+          <p>
+            적금은 정기적으로 저축을 할 수 있는 금융 상품으로, 특정 목표를 위한 저축을 지원합니다.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>고정된 기간 동안 정기적으로 저축을 할 수 있습니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>높은 이자율로 저축을 늘리는 데 도움을 줍니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>일정한 기간 동안 저축 계획을 지속해야 하는 요구사항이 있을 수 있습니다.</span></li>
+          </ul>
+        </div>
+        
+        <!-- 주택 청약 상품 설명 -->
+        <div id="housing" class="service-item" style="display:none;">
+          <img src="assets/img/services/housing.jpg" alt="" class="img-fluid services-img">
+          <h1><b>주택 청약 상품</b><p></p></h>
+          <p>
+            주택 청약은 저금성이나 청약통장을 통해 주택 구매를 지원하는 정부 정책입니다.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>저금성을 통해 매달 일정 금액을 저축할 수 있습니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>정부 보조금이나 세금 혜택을 제공할 수 있는 경우가 있습니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>일정 기간 동안 저금성 계좌를 유지해야 하는 요구사항이 있을 수 있습니다.</span></li>
+          </ul>
+        </div>
+        
+        <!-- 펀드 상품 설명 -->
+        <div id="funds" class="service-item" style="display:none;">
+          <img src="assets/img/services/funds.jpg" alt="" class="img-fluid services-img">
+          <h1><b>펀드 상품</b><p></p></h>
+          <p>
+            펀드는 여러 투자자들이 모여 투자하는 금융 상품으로, 다양한 자산에 분산 투자할 수 있습니다.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>다양한 자산군에 투자하여 리스크를 분산할 수 있습니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>전문 펀드 매니저가 자산을 관리하여 최적의 수익을 추구합니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>일정 기간 동안 펀드에 투자를 유지해야 하는 요구사항이 있을 수 있습니다.</span></li>
+          </ul>
+        </div>
+        
+        <!-- 대출 상품 설명 -->
+        <div id="loans" class="service-item" style="display:none;">
+          <img src="assets/img/services/loans.jpg" alt="" class="img-fluid services-img">
+          <h1><b>대출 상품</b><p></p></h>
+          <p>
+            대출은 필요한 자금을 빌려오는 금융 상품으로, 상환 조건과 이자율에 따라 다양한 종류가 있습니다.
+          </p>
+          <ul>
+            <li><i class="bi bi-check-circle"></i> <span>다양한 용도로 사용할 수 있는 대출 상품을 제공합니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>대출 한도와 상환 조건을 검토하여 최적의 대출 상품을 선택할 수 있습니다.</span></li>
+            <li><i class="bi bi-check-circle"></i> <span>일정 기간 동안 대출을 상환해야 하는 요구사항이 있을 수 있습니다.</span></li>
+          </ul>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+</section><!-- /Service Details Section -->
+
+<!-- jQuery 스크립트 -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function() {
+    // 각 상품 링크 클릭 시 이벤트 처리
+    $(".service-link").click(function(e) {
+      e.preventDefault(); // 링크의 기본 동작을 막습니다.
+      
+      // 모든 상품 설명 숨기기
+      $(".service-item").hide();
+      
+      // 클릭한 링크의 href 속성 값을 가져와서 해당 ID를 보이도록 설정
+      var targetId = $(this).attr("href");
+      $(targetId).fadeIn();
+      
+      // 활성 링크 스타일 변경
+      $(".service-link").removeClass("active");
+      $(this).addClass("active");
+    });
+  });
+</script>
+
+
+  </main>
+
+  <%- include ('../footer.html') %>
+
+</body>
+
+</html>

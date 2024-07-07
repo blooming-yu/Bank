@@ -9,6 +9,12 @@
   <meta content="" name="keywords">
 
   <%- include('menu.html') %>
+
+  <% if(typeof data != 'undefined' && data.alertMsg){ %>
+    <script>
+      alert(`<%= data.alertMsg %>`) ;
+    </script>            
+  <% } %>
 </head>
 
 <body class="index-page">
